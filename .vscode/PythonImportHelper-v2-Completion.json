@@ -81,6 +81,22 @@
         "documentation": {}
     },
     {
+        "label": "BaseUserManager",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "UserManager",
+        "importPath": "users.models",
+        "description": "users.models",
+        "isExtraImport": true,
+        "detail": "users.models",
+        "documentation": {}
+    },
+    {
         "label": "TestCase",
         "importPath": "django.test",
         "description": "django.test",
@@ -292,6 +308,15 @@
         "description": "users.apps",
         "peekOfCode": "class UsersConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'users'",
         "detail": "users.apps",
+        "documentation": {}
+    },
+    {
+        "label": "UserManager",
+        "kind": 6,
+        "importPath": "users.models",
+        "description": "users.models",
+        "peekOfCode": "class UserManager(BaseUserManager):\n    def create_user(self, email, password=None, **extra_fields):\n        if not email:\n            raise ValueError('The email field must be set')\n        email = self.normalize_email(email)\n        user = self.model(email=email, **extra_fields)\n        user.set_password(password)\n        user.save()\n        return user\n    def create_superuser(self, email, password=None, **extra_fields):",
+        "detail": "users.models",
         "documentation": {}
     },
     {
