@@ -73,6 +73,14 @@
         "documentation": {}
     },
     {
+        "label": "AbstractBaseUser",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
         "label": "TestCase",
         "importPath": "django.test",
         "description": "django.test",
@@ -284,6 +292,15 @@
         "description": "users.apps",
         "peekOfCode": "class UsersConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'users'",
         "detail": "users.apps",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "kind": 6,
+        "importPath": "users.models",
+        "description": "users.models",
+        "peekOfCode": "class User(AbstractBaseUser):\n    is_active = models.BooleanField(default=True)\n    is_staff = models.BooleanField(default=False)\n    is_superuser = models.BooleanField(default=False)\n    firstName = models.CharField(max_length=255)\n    lastName = models.CharField(max_length=255)\n    email = models.EmailField(unique=True)\n    mobile = models.CharField(max_length=20)\n    password = models.CharField(max_length=255)\n    otp = models.CharField(max_length=6, null=True, blank=True)",
+        "detail": "users.models",
         "documentation": {}
     },
     {
