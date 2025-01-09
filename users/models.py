@@ -23,6 +23,9 @@ class UserManager(BaseUserManager):
             raise ValueError('Superuser should have superuser status true')
         return self.create_user(email, password, **extra_fields)
 
+    # def all(self):
+    #     return super().all().filter(is_active=True)
+
 
 class User(AbstractBaseUser):
     is_active = models.BooleanField(default=True)
@@ -40,3 +43,4 @@ class User(AbstractBaseUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     object = UserManager
+# 40.48

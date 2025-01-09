@@ -49,6 +49,22 @@
         "documentation": {}
     },
     {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
         "label": "get_wsgi_application",
         "importPath": "django.core.wsgi",
         "description": "django.core.wsgi",
@@ -105,6 +121,22 @@
         "documentation": {}
     },
     {
+        "label": "serializers",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "users.models",
+        "description": "users.models",
+        "isExtraImport": true,
+        "detail": "users.models",
+        "documentation": {}
+    },
+    {
         "label": "TestCase",
         "importPath": "django.test",
         "description": "django.test",
@@ -113,11 +145,27 @@
         "documentation": {}
     },
     {
+        "label": "UserRegistrationView",
+        "importPath": "users.views",
+        "description": "users.views",
+        "isExtraImport": true,
+        "detail": "users.views",
+        "documentation": {}
+    },
+    {
         "label": "render",
         "importPath": "django.shortcuts",
         "description": "django.shortcuts",
         "isExtraImport": true,
         "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
+        "label": "APIView",
+        "importPath": "rest_framework.views",
+        "description": "rest_framework.views",
+        "isExtraImport": true,
+        "detail": "rest_framework.views",
         "documentation": {}
     },
     {
@@ -301,11 +349,20 @@
         "documentation": {}
     },
     {
+        "label": "api_urlpatterns",
+        "kind": 5,
+        "importPath": "sales_inventory_project.urls",
+        "description": "sales_inventory_project.urls",
+        "peekOfCode": "api_urlpatterns = [\n    path('', include('users.urls'))\n]\nurlpatterns = [\n    path('admin/', admin.site.urls),\n    path('api/', include(api_urlpatterns)),\n]",
+        "detail": "sales_inventory_project.urls",
+        "documentation": {}
+    },
+    {
         "label": "urlpatterns",
         "kind": 5,
         "importPath": "sales_inventory_project.urls",
         "description": "sales_inventory_project.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('api/', include(api_urlpatterns)),\n]",
         "detail": "sales_inventory_project.urls",
         "documentation": {}
     },
@@ -352,6 +409,33 @@
         "description": "users.models",
         "peekOfCode": "class User(AbstractBaseUser):\n    is_active = models.BooleanField(default=True)\n    is_staff = models.BooleanField(default=False)\n    is_superuser = models.BooleanField(default=False)\n    firstName = models.CharField(max_length=255)\n    lastName = models.CharField(max_length=255)\n    email = models.EmailField(unique=True)\n    mobile = models.CharField(max_length=20)\n    password = models.CharField(max_length=255)\n    otp = models.CharField(max_length=6, null=True, blank=True)",
         "detail": "users.models",
+        "documentation": {}
+    },
+    {
+        "label": "UserRegistrationSerializers",
+        "kind": 6,
+        "importPath": "users.serializers",
+        "description": "users.serializers",
+        "peekOfCode": "class UserRegistrationSerializers(serializers.ModelSerializer):\n    class Meta:\n        model = User\n        fields = [\n            'firstName',\n            'lastName',\n            'email',\n            'password',\n            'mobile'\n        ]",
+        "detail": "users.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "urlpatterns",
+        "kind": 5,
+        "importPath": "users.urls",
+        "description": "users.urls",
+        "peekOfCode": "urlpatterns = [\n    path('user-registration', UserRegistrationView.as_view(),\n         name='user-registration')\n]",
+        "detail": "users.urls",
+        "documentation": {}
+    },
+    {
+        "label": "UserRegistrationView",
+        "kind": 6,
+        "importPath": "users.views",
+        "description": "users.views",
+        "peekOfCode": "class UserRegistrationView(APIView):\n    def post(self, request):\n        pass",
+        "detail": "users.views",
         "documentation": {}
     },
     {
