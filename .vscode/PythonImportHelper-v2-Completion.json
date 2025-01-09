@@ -129,6 +129,14 @@
         "documentation": {}
     },
     {
+        "label": "status",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
         "label": "User",
         "importPath": "users.models",
         "description": "users.models",
@@ -166,6 +174,22 @@
         "description": "rest_framework.views",
         "isExtraImport": true,
         "detail": "rest_framework.views",
+        "documentation": {}
+    },
+    {
+        "label": "UserRegistrationSerializers",
+        "importPath": "users.serializers",
+        "description": "users.serializers",
+        "isExtraImport": true,
+        "detail": "users.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
         "documentation": {}
     },
     {
@@ -434,7 +458,7 @@
         "kind": 6,
         "importPath": "users.views",
         "description": "users.views",
-        "peekOfCode": "class UserRegistrationView(APIView):\n    def post(self, request):\n        pass",
+        "peekOfCode": "class UserRegistrationView(APIView):\n    def post(self, request):\n        serializer = UserRegistrationSerializers(data=request.data)\n        if serializer.is_valid():\n            serializer.save()\n            return Response(\n                {'status': 'success', 'message': 'User Registration Successfully'},\n                status=status.HTTP_201_CREATED)\n        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)",
         "detail": "users.views",
         "documentation": {}
     },
